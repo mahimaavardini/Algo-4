@@ -19,16 +19,16 @@ int n;
 int numOfnodes;
 int count;
 int source, destination, weight;
+FILE *fp;
 
 //Read graph 
-void ReadGraph(FILE *fp) {
+void readGraph() {
     fp = fopen("testGraph.txt", "r");
     fscanf(fp, "%d", &numOfnodes);
 
     //check if file is null
     if (fp == NULL) {
         printf("Error opening file\n");
-        return 1;
     }
 
     //initilize matrix with 0's where source vertice = destination vertices and infinit everywhere else
@@ -54,7 +54,7 @@ void ReadGraph(FILE *fp) {
     fclose(fp);
 }
 
-void PrintMatrix(){
+void printMatrix(){
     printf("Printing the matrix: \n");
     for (int i = 0; i < numOfnodes; i++) {
         for (int j = 0; j < numOfnodes; j++) {
@@ -67,7 +67,7 @@ void PrintMatrix(){
     }
 }
 
-void AllPairsShortPaths() {
+void allPairsShortPaths() {
     //so we used Floyd warshalls algorithm for implementing this function 
     for(int k = 0; k < numOfnodes; ++k) {
         for (int i = 0; i < numOfnodes; i++) {
@@ -79,7 +79,7 @@ void AllPairsShortPaths() {
             }
         }
             printf("Intermediate graphs after %d iterations");
-            PrintMatrix();
+            printMatrix();
     }
 }
 
