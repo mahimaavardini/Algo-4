@@ -1,3 +1,10 @@
+/************************************************************************************* 
+* This program implements an adjancency Matrix for graph representation
+* 
+*
+* Modified by: Mahimaa Vardini BR, Faith Aikhionbare, Samarpita Sharma 
+* Date: Thursday, April 11th, 2025
+*************************************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
