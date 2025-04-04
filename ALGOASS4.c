@@ -35,3 +35,14 @@ void PrintMatrix(){
         printf("\n");
     }
 }
+
+void AllPairsShortPaths() {
+    //so we used Floyd warshalls algorithm for implementing this function 
+    for(int k = 0; k < numOfnodes; ++k) {
+        for (int i = 0; i < numOfnodes; i++) {
+            for (int j = 0; j < numOfnodes; j++) {
+                if
+            }
+        }
+    }
+    
