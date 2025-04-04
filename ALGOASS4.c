@@ -23,3 +23,15 @@ void ReadGraph(FILE *fp) {
     }
 }
 
+void PrintMatrix(){
+    printf("Printing the matrix: \n");
+    for (int i = 0; i < numOfnodes; i++) {
+        for (int j = 0; j < numOfnodes; j++) {
+            if (AdjacencyMatrix[i][j] == INT_MAX)
+                printf("♾️\t");
+            else
+                printf("%d\t", AdjacencyMatrix[i][j]);
+        }
+        printf("\n");
+    }
+}
