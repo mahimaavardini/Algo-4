@@ -29,7 +29,6 @@ void readGraph() {
     //check if file is null
     if (fp == NULL) {
         printf("Error opening file\n");
-        return 1;
     }
 
     //initilize matrix with 0's where source vertice = destination vertices and infinit everywhere else
