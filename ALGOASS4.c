@@ -32,14 +32,26 @@ void ReadGraph(FILE *fp) {
     }
 
     //initilize matrix with 0's where source vertice = destination vertices and infinit everywhere else
+    for(int s = 0; s < numOfnodes; s++){
+        for(int d = 0; d < numOfnodes; d ++){
+            //add a 0 for self loops 
+            if(s == d){
+                AdjacencyMatrix[s][d] = 0;
+            }else{
+                AdjacencyMatrix[s][d] = INT_MAX;
+            }
+        }
+    }
 
-
-    //Reads the file adding the undriected edges to the adjancency matrix. 
+    //Reads the file adding the undirected edges to the adjancency matrix. 
     while (count < numOfnodes && fscanf(fp, "%d %d %d", &source, &destination, &weight) == 3) {
         AdjacencyMatrix[source][destination] = weight;
         AdjacencyMatrix[destination][source] = weight;
         count ++;
     }
+    
+    //close file 
+    fclose(fp);
 }
 
 void PrintMatrix(){
