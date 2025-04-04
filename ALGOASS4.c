@@ -3,14 +3,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-//this is a test edit 
-
-//more tests 
-
-//another line added
-
-//hello
-
 //creating a variable defining the matrix
 #define MaxVertices 50
 //creating the matrix
