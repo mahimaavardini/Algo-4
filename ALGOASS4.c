@@ -18,8 +18,8 @@ void ReadGraph(FILE *fp) {
     fp = fopen("testGraph.txt", "r");
     fscanf(fp, "%d", &numOfnodes);
     while (count < numOfnodes && fscanf(fp, "%d %d %d", &source, &destination, &weight) == 3) {
-        
-    
+        AdjacencyMatrix[source][destination] = weight;
+        AdjacencyMatrix[destination][source] = weight;
     }
 }
 
