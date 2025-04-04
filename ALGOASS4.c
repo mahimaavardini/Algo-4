@@ -24,9 +24,21 @@ int source, destination, weight;
 void ReadGraph(FILE *fp) {
     fp = fopen("testGraph.txt", "r");
     fscanf(fp, "%d", &numOfnodes);
+
+    //check if file is null
+    if (fp == NULL) {
+        printf("Error opening file\n");
+        return 1;
+    }
+
+    //initilize matrix with 0's where source vertice = destination vertices and infinit everywhere else
+
+
+    //Reads the file adding the undriected edges to the adjancency matrix. 
     while (count < numOfnodes && fscanf(fp, "%d %d %d", &source, &destination, &weight) == 3) {
         AdjacencyMatrix[source][destination] = weight;
         AdjacencyMatrix[destination][source] = weight;
+        count ++;
     }
 }
 
