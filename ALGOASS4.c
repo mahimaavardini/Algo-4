@@ -79,7 +79,7 @@ void allPairsShortPaths() {
             }
         }
             printf("Intermediate graphs after %d iterations");
-            PrintMatrix();
+            printMatrix();
     }
 }
 
