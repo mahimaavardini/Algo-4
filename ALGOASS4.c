@@ -70,3 +70,23 @@ void AllPairsShortPaths() {
             PrintMatrix();
     }
 }
+
+int centralNode(){
+    int NodeID = -1;
+    int MinMax = INT_MAX;
+
+    for (int i = 0; i < numOfnodes; i++) {
+        int MaxDist = 0;
+        for (int j = 0; j < numOfnodes; j++) {
+            if(AdjacencyMatrix[i][j] > MaxDist){
+                MaxDist = AdjacencyMatrix[i][j];
+            }
+        }
+        if (MaxDist < MinMax){
+            MinMax = MaxDist;
+            NodeID = i;
+        }
+    }
+    return NodeID;
+
+}
