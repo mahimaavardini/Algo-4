@@ -41,8 +41,13 @@ void AllPairsShortPaths() {
     for(int k = 0; k < numOfnodes; ++k) {
         for (int i = 0; i < numOfnodes; i++) {
             for (int j = 0; j < numOfnodes; j++) {
-                if
+                if (AdjacencyMatrix[i][k] != INT_MAX && AdjacencyMatrix[k][j] != INT_MAX && 
+                    AdjacencyMatrix[i][j] > AdjacencyMatrix[i][k] + AdjacencyMatrix[k][j]) {
+                        AdjacencyMatrix[i][j] = AdjacencyMatrix[k][j] + AdjacencyMatrix[i][k];
+                    }
             }
         }
+            printf("Intermediate graphs after %d iterations");
+            PrintMatrix();
     }
-    
+}
