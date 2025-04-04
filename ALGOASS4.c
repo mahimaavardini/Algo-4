@@ -102,3 +102,29 @@ int centralNode(){
     return NodeID;
 
 }
+
+int main(){
+    FILE* file = fopen("testGraph.txt", "r");
+
+    if (file == NULL) {
+        fprintf(stderr, "Error opening file\n");
+        return 1;
+    }
+
+    readGraph(file);
+    fclose(file);
+    printf("Original graph\n");
+    printMatrix();
+    allPairsShortPaths();
+    printf("Final Graph\n");
+    printMatrix();
+
+    int central = centralNode();
+    if (central != -1){
+        printf("The central node of the graph is %d\n", central);
+    }
+    else{
+        printf("\nThe graph is not connected.\n");
+    }
+    return 0;
+}
