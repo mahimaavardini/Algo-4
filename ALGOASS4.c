@@ -23,7 +23,7 @@ FILE *fp;
 
 //Read graph 
 void readGraph() {
-    fp = fopen("testGraph.txt", "r");
+    fp = fopen("graph1.txt", "r");
     fscanf(fp, "%d", &numOfnodes);
 
     //check if file is null
@@ -45,6 +45,10 @@ void readGraph() {
 
     //Reads the file adding the undirected edges to the adjancency matrix. 
     while (count < numOfnodes && fscanf(fp, "%d %d %d", &source, &destination, &weight) == 3) {
+        //during our code we always start with index 1 so to match that we are increaseing the number of each node
+        //so the first row and column begins with 0
+        //source++;
+        //destination++;
         AdjacencyMatrix[source][destination] = weight;
         AdjacencyMatrix[destination][source] = weight;
         count ++;
@@ -54,12 +58,13 @@ void readGraph() {
     fclose(fp);
 }
 
+
 void printMatrix(){
     printf("Printing the matrix: \n");
     for (int i = 0; i < numOfnodes; i++) {
         for (int j = 0; j < numOfnodes; j++) {
             if (AdjacencyMatrix[i][j] == INT_MAX)
-                printf("♾️\t");
+                printf("-\t"); //I need to test with terminal so using - instead of the ♾️ can change later
             else
                 printf("%d\t", AdjacencyMatrix[i][j]);
         }
@@ -78,7 +83,7 @@ void allPairsShortPaths() {
                     }
             }
         }
-            printf("Intermediate graphs after %d iterations");
+            printf("Intermediate graphs after %d iterations", k+1);
             printMatrix();
     }
 }
@@ -105,15 +110,8 @@ int centralNode(){
 }
 
 int main(){
-    FILE* file = fopen("graph1.txt", "r");
 
-    if (file == NULL) {
-        fprintf(stderr, "Error opening file\n");
-        return 1;
-    }
-
-    readGraph(file);
-    fclose(file);
+    readGraph();
     printf("Original graph\n");
     printMatrix();
     allPairsShortPaths();
