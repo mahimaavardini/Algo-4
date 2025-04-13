@@ -83,6 +83,7 @@ void allPairsShortPaths() {
     }
 }
 
+//function to find the central node of the graph 
 int centralNode(){
     int NodeID = -1;
     int MinMax = INT_MAX;
