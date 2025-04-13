@@ -11,19 +11,17 @@
 #include <limits.h>
 
 //creating a variable defining the matrix
-#define MaxVertices 50
+#define MaxVertices 100
 //creating the matrix
 int AdjacencyMatrix[MaxVertices][MaxVertices];
-// represents number of vertices 
-int n;
-int numOfnodes;
-int count;
-int source, destination, weight;
+
+int n, numOfnodes;
 FILE *fp;
 
 //Read graph 
 void readGraph() {
     fp = fopen("graph1.txt", "r");
+
     fscanf(fp, "%d", &numOfnodes);
 
     //check if file is null
@@ -43,15 +41,11 @@ void readGraph() {
         }
     }
 
+    int source, destination, weight;
     //Reads the file adding the undirected edges to the adjancency matrix. 
-    while (count < numOfnodes && fscanf(fp, "%d %d %d", &source, &destination, &weight) == 3) {
-        //during our code we always start with index 1 so to match that we are increaseing the number of each node
-        //so the first row and column begins with 0
-        //source++;
-        //destination++;
+    while (numOfnodes && fscanf(fp, "%d %d %d", &source, &destination, &weight) == 3) {
         AdjacencyMatrix[source][destination] = weight;
         AdjacencyMatrix[destination][source] = weight;
-        count ++;
     }
     
     //close file 
@@ -83,7 +77,7 @@ void allPairsShortPaths() {
                     }
             }
         }
-            printf("Intermediate graphs after %d iterations", k+1);
+            printf("Intermediate graphs after %d iterations\n", k+1);
             printMatrix();
     }
 }
