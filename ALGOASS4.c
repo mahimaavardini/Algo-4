@@ -105,7 +105,7 @@ int centralNode(){
 }
 
 int main(){
-    FILE* file = fopen("testGraph.txt", "r");
+    FILE* file = fopen("graph1.txt", "r");
 
     if (file == NULL) {
         fprintf(stderr, "Error opening file\n");
